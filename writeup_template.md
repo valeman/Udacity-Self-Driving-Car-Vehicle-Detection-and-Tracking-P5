@@ -51,7 +51,7 @@ hog_channel = 'ALL'
 An example of vehicle and non-vehicle images processed via HOG is below:
 
 <p align="center">
-  <img src="images/HOG_example.jpg" alt="HOG example"/>
+  <img src="images/HOG_example.png" alt="HOG example"/>
 </p>
 
 
