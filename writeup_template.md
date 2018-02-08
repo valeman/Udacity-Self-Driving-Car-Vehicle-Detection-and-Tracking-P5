@@ -1,18 +1,19 @@
-## Writeup Template
-### You can use this file as a template for your writeup if you want to submit it as a markdown file, but feel free to use some other method and submit a pdf if you prefer.
-
+## Udacity-Self-Driving-Car-Vehicle-Detection-and-Tracking
+### Project V
 ---
-
 **Vehicle Detection Project**
 
-The goals / steps of this project are the following:
+In this project, the following classical computer vision techniques were used:
 
-* Perform a Histogram of Oriented Gradients (HOG) feature extraction on a labeled training set of images and train a classifier Linear SVM classifier
-* Optionally, you can also apply a color transform and append binned color features, as well as histograms of color, to your HOG feature vector. 
-* Note: for those first two steps don't forget to normalize your features and randomize a selection for training and testing.
-* Implement a sliding-window technique and use your trained classifier to search for vehicles in images.
-* Run your pipeline on a video stream (start with the test_video.mp4 and later implement on full project_video.mp4) and create a heat map of recurring detections frame by frame to reject outliers and follow detected vehicles.
-* Estimate a bounding box for vehicles detected.
+* a Histogram of Oriented Gradients (HOG) was used to extract features
+* histograms of color and binned color features were obtained from color transform into appropriate color space
+* HOG features were combined with histogram of color and binned color features
+* a linear SVM classifier was trained on combined set of features using a labeled training set
+* a sliding-window technique was used to search for cars with trained SVM
+* a heatmap was run on recurring detections frame by frame to reject outliers and to follow detected vehicles
+* pipeline was run on a video stream using shorter test_video.mp4 and also full project video project_video.mp4
+
+### Please see [Rubric](https://review.udacity.com/#!/rubrics/513/view) points
 
 [//]: # (Image References)
 [image1]: ./examples/car_not_car.png
