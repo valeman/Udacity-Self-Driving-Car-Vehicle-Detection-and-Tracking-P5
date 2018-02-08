@@ -16,8 +16,6 @@ In this project, the following classical computer vision techniques were used:
 ### Here I will consider the rubric points individually and describe how I addressed each point in my implementation.
 
 [//]: # (Image References)
-[image1]: ./examples/car_not_car.png
-[image2]: ./examples/HOG_example.jpg
 [image3]: ./examples/sliding_windows.jpg
 [image4]: ./examples/sliding_window.jpg
 [image5]: ./examples/bboxes_and_heat.png
@@ -29,21 +27,33 @@ In this project, the following classical computer vision techniques were used:
 ### Data Exploration
 
 Labeled images were obtained from the [GTI](http://www.gti.ssr.upm.es/data/Vehicle_database.html) vehicle database, the 
-[KITTI Vision Benchmark Suite](http://www.cvlibs.net/datasets/kitti/) and the project video itself. The total number of vehicle images was 8792, and the total number of non-vehicles images was 8968. The data set was broadly balanced. As images of the GTI data set were taken from video sequences, this was addressed via separaiton into training, validation and test set to avoid images of the same car being present across the training and testing datasets.
+[KITTI Vision Benchmark Suite](http://www.cvlibs.net/datasets/kitti/) and the project video itself. The total number of vehicle images was 8792, and the total number of non-vehicles images was 8968. The data set was broadly balanced. As images of the GTI data set were taken from video sequences, this was addressed via separaiton into training, validation and test set to avoid images of the same car being present across the training and testing datasets. Shown below are an examplle from each class (vehicle and not vehicle).
 
 <p align="center">
   <img src="images/car_not_car.png" alt="Examples of car and not car"/>
 </p>
 
+The data set was divided as follows (70% of images of each class was taken for training set, 20% was taken for the validation set (parameter tuning) and 10% was used for the testing set:
 
-
-
-
-#### 1. Provide a Writeup / README that includes all the rubric points and how you addressed each one.  You can submit your writeup as markdown or pdf.  [Here](https://github.com/udacity/CarND-Vehicle-Detection/blob/master/writeup_template.md) is a template writeup for this project you can use as a guide and a starting point.  
-
-You're reading it!
+- number of vehicle images - training set: 6154, validation set: 1758, test set: 880
+- number of vehicle images - training set: 6277, validation set: 1794, test set: 897
 
 ### Histogram of Oriented Gradients (HOG)
+
+The code for this step is contained in the function get_hog_features in line 10 of the IPython notebook, different combinations of parameters were explored with final parameters as below.
+
+colorspace = 'YCrCb' # Can be RGB, HSV, LUV, HLS, YUV, YCrCb
+orient = 9
+pix_per_cell = 8
+cell_per_block = 2
+hog_channel = 'ALL' 
+
+An example of vehicle and non-vehicle images processed via HOG is below:
+
+<p align="center">
+  <img src="images/HOG_example.jpg" alt="HOG example"/>
+</p>
+
 
 #### 1. Explain how (and identify where in your code) you extracted HOG features from the training images.
 
