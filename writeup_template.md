@@ -31,8 +31,9 @@ In this project, the following classical computer vision techniques were used:
 Labeled images were obtained from the [GTI](http://www.gti.ssr.upm.es/data/Vehicle_database.html) vehicle database, the 
 [KITTI Vision Benchmark Suite](http://www.cvlibs.net/datasets/kitti/) and the project video itself. The total number of vehicle images was 8792, and the total number of non-vehicles images was 8968. The data set was broadly balanced. As images of the GTI data set were taken from video sequences, this was addressed via separaiton into training, validation and test set to avoid images of the same car being present across the training and testing datasets.
 
-[image1]: ./images/car_not_car.png
-
+<p align="center">
+  <img src="images/car_not_car.png" alt="Examples of car and not car"/>
+</p>
 
 
 
