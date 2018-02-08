@@ -5,7 +5,7 @@
 In this project, the following classical computer vision techniques were used:
 
 * a Histogram of Oriented Gradients (HOG) was used to extract features
-* histograms of color and binned color features were obtained from color transform into appropriate color space
+* histograms of color and binned color features were obtained from transformed color space
 * HOG features were combined with histogram of color and binned color features
 * a linear SVM classifier was trained on combined set of features using a labeled training set
 * a sliding-window technique was used to search for cars with trained SVM
@@ -28,7 +28,13 @@ In this project, the following classical computer vision techniques were used:
 ---
 ### Data Exploration
 
-Labeled images were obtained from the [GTI](http://www.gti.ssr.upm.es/data/Vehicle_database.html) vehicle database, the [KITTI Vision Benchmark Suite] (http://www.cvlibs.net/datasets/kitti/) and the project video itself. 
+Labeled images were obtained from the [GTI](http://www.gti.ssr.upm.es/data/Vehicle_database.html) vehicle database, the 
+[KITTI Vision Benchmark Suite](http://www.cvlibs.net/datasets/kitti/) and the project video itself. The total number of vehicle images was 8792, and the total number of non-vehicles images was 8968. The data set was broadly balanced. As images of the GTI data set were taken from video sequences, this was addressed via separaiton into training, validation and test set to avoid images of the same car being present across the training and testing datasets.
+
+[image1]: ./images/car_not_car.png
+
+
+
 
 
 
