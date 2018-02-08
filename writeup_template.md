@@ -1,5 +1,4 @@
 ## Udacity-Self-Driving-Car-Vehicle-Detection-and-Tracking
-### Project V
 ---
 **Vehicle Detection Project**
 
