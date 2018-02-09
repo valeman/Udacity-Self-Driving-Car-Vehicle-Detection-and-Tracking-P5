@@ -16,8 +16,6 @@ In this project, the following classical computer vision techniques were used:
 ### Here I will consider the rubric points individually and describe how I addressed each point in my implementation.
 
 [//]: # (Image References)
-[image3]: ./examples/sliding_windows.jpg
-[image4]: ./examples/sliding_window.jpg
 [image5]: ./examples/bboxes_and_heat.png
 [image6]: ./examples/labels_map.png
 [image7]: ./examples/output_bboxes.png
@@ -54,31 +52,17 @@ An example of vehicle and non-vehicle images processed via HOG is below:
   <img src="images/HOG_example.png" alt="HOG example"/>
 </p>
 
-
-#### 1. Explain how (and identify where in your code) you extracted HOG features from the training images.
-
-The code for this step is contained in the first code cell of the IPython notebook (or in lines # through # of the file called `some_file.py`).  
-
-I started by reading in all the `vehicle` and `non-vehicle` images.  Here is an example of one of each of the `vehicle` and `non-vehicle` classes:
-
-![alt text][image1]
-
-I then explored different color spaces and different `skimage.hog()` parameters (`orientations`, `pixels_per_cell`, and `cells_per_block`).  I grabbed random images from each of the two classes and displayed them to get a feel for what the `skimage.hog()` output looks like.
-
-Here is an example using the `YCrCb` color space and HOG parameters of `orientations=8`, `pixels_per_cell=(8, 8)` and `cells_per_block=(2, 2)`:
-
-
-![alt text][image2]
-
-#### 2. Explain how you settled on your final choice of HOG parameters.
-
-I tried various combinations of parameters and...
-
-#### 3. Describe how (and identify where in your code) you trained a classifier using your selected HOG features (and color features if you used them).
-
-I trained a linear SVM using...
+#### Choice of paramenets and channels for HOG.
+I tried various combinations of color spaces and HOG parameters and trained a linear SVM first by using color based features and then using HOG features. The difference in performance was observed for linear SVM classifier with HOG features providing classification accuracy of almost 99% on the test set. The classification accurace using only color based features was lower at around 92% and in the final classifier I used combined (color and HOG) features obtaining test accuracy of 98.82%. For color binning spatial size was (16,16) and hist_bins = 32. Whilst classification accuracy was high, some false positives occured on images including guard rails, lane lines etc. 
 
 ### Sliding Window Search
+
+I used Hog sub-sampling window search which is a more efficient method for doing the sliding window approach. The approach allows to only extract the Hog features once. The features can then be sub-sampled to get all of its overlaying windows. Each window is defined by a scaling factor where a scale of 1 would result in a window that's 8 x 8 cells then the overlap of each window is in terms of the cell distance. This means that a cells_per_step = 2 would result in a search window overlap of 75%. Its possible to run this same function multiple times for different scale values to generate multiple-scaled search windows.
+
+
+<p align="center">
+  <img src="images/sliding_window2.png" alt="Sliding window"/>
+</p>
 
 #### 1. Describe how (and identify where in your code) you implemented a sliding window search.  How did you decide what scales to search and how much to overlap windows?
 
