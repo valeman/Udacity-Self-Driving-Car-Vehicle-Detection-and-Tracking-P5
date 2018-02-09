@@ -15,12 +15,6 @@ In this project, the following classical computer vision techniques were used:
 ## [Rubric](https://review.udacity.com/#!/rubrics/513/view) Points
 ### Here I will consider the rubric points individually and describe how I addressed each point in my implementation.
 
-[//]: # (Image References)
-[image5]: ./examples/bboxes_and_heat.png
-[image6]: ./examples/labels_map.png
-[image7]: ./examples/output_bboxes.png
-[video1]: ./project_video.mp4
-
 ---
 ### Data Exploration
 
@@ -77,32 +71,11 @@ Here is an example of a heat map.
 
 ### Video Implementation
 
-Here's a [Project_video](https://youtu.be/2BuTFsSRfJw)
-
-
-#### 2. Describe how (and identify where in your code) you implemented some kind of filter for false positives and some method for combining overlapping bounding boxes.
-
-I recorded the positions of positive detections in each frame of the video.  From the positive detections I created a heatmap and then thresholded that map to identify vehicle positions.  I then used `scipy.ndimage.measurements.label()` to identify individual blobs in the heatmap.  I then assumed each blob corresponded to a vehicle.  I constructed bounding boxes to cover the area of each blob detected.  
-
-Here's an example result showing the heatmap from a series of frames of video, the result of `scipy.ndimage.measurements.label()` and the bounding boxes then overlaid on the last frame of video:
-
-### Here are six frames and their corresponding heatmaps:
-
-![alt text][image5]
-
-### Here is the output of `scipy.ndimage.measurements.label()` on the integrated heatmap from all six frames:
-![alt text][image6]
-
-### Here the resulting bounding boxes are drawn onto the last frame in the series:
-![alt text][image7]
-
-
+Here's a [Project_video](https://youtu.be/2BuTFsSRfJw). 
 
 ---
 
 ### Discussion
 
-#### 1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?
-
-Here I'll talk about the approach I took, what techniques I used, what worked and why, where the pipeline might fail and how I might improve it if I were going to pursue this project further.  
+The approached worked very well, detecting vehicles from frame to frame. False positives were difficult to deal with when I have implemented first version of the project. However I was able to substantially reduce false positive by obtaining better classifier and also heat map averaging. The project was an educational project to apply classical computer vision techniques in combination with classical machine learning alrgotihm such as SVM. A new more advance approach such as YOLO would be an interesting application of deep learning techniques which could provide even better results.  
 
