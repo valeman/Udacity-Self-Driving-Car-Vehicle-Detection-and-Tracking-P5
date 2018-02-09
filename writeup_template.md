@@ -57,25 +57,23 @@ I tried various combinations of color spaces and HOG parameters and trained a li
 
 ### Sliding Window Search
 
-I used Hog sub-sampling window search which is a more efficient method for doing the sliding window approach. The approach allows to only extract the Hog features once. The features can then be sub-sampled to get all of its overlaying windows. Each window is defined by a scaling factor where a scale of 1 would result in a window that's 8 x 8 cells then the overlap of each window is in terms of the cell distance. This means that a cells_per_step = 2 would result in a search window overlap of 75%. Its possible to run this same function multiple times for different scale values to generate multiple-scaled search windows.
+I used Hog sub-sampling window search which is a more efficient method for doing the sliding window approach. The approach allows to only extract the Hog features once. The features can then be sub-sampled to get all of its overlaying windows. Each window is defined by a scaling factor where a scale of 1 would result in a window that's 8 x 8 cells then the overlap of each window is in terms of the cell distance. This means that a cells_per_step = 2 would result in a search window overlap of 75%. Its possible to run this same function multiple times for different scale values to generate multiple-scaled search windows. The final classifier was searchig at 4 different scales: 1, 1.5, 2, 3.5.
 
+Examples of test images with sliding windows are below:
 
 <p align="center">
   <img src="images/sliding_window2.png" alt="Sliding window"/>
 </p>
 
-#### 1. Describe how (and identify where in your code) you implemented a sliding window search.  How did you decide what scales to search and how much to overlap windows?
+#### False positives and filtering
+Filtering was implemented to store bounding boxes of the last n frames. Bounding boxes from the last n frames were then added, a heat map was applied which was then thresholded in order to filter out false positives (the idea here is that false positives are unlikely to persists from frame to frame). scipy.ndimage.measurements.label() was used to indentify individual blobs in the heatmap allowing to locate the vehicle(s) within the box(es).
 
-I decided to search random window positions at random scales all over the image and came up with this (ok just kidding I didn't actually ;):
+Here is an example of a heat map.
 
-![alt text][image3]
+<p align="center">
+  <img src="images/heat_map.png" alt="Heat map"/>
+</p>
 
-#### 2. Show some examples of test images to demonstrate how your pipeline is working.  What did you do to optimize the performance of your classifier?
-
-Ultimately I searched on two scales using YCrCb 3-channel HOG features plus spatially binned color and histograms of color in the feature vector, which provided a nice result.  Here are some example images:
-
-![alt text][image4]
----
 
 ### Video Implementation
 
