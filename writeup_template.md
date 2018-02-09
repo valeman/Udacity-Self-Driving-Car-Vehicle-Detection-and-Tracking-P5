@@ -77,5 +77,4 @@ Here's a [Project_video](https://youtu.be/2BuTFsSRfJw).
 
 ### Discussion
 
-The approached worked very well, detecting vehicles from frame to frame. False positives were difficult to deal with when I have implemented first version of the project. However I was able to substantially reduce false positive by obtaining better classifier and also heat map averaging. The project was an educational project to apply classical computer vision techniques in combination with classical machine learning alrgotihm such as SVM. A new more advance approach such as YOLO would be an interesting application of deep learning techniques which could provide even better results.  
-
+The approached worked very well, detecting vehicles from frame to frame. False positives were difficult to deal with when I have implemented first version of the project. However I was able to substantially reduce false positive by obtaining better classifier and also heat map averaging. The project was an educational project to apply classical computer vision techniques in combination with classical machine learning alrgotihm such as SVM. A new more advanced approaches such as for example YOLO would be an interesting application of deep learning techniques which could provide even better results. In addition results could be imporved by using more data.  
