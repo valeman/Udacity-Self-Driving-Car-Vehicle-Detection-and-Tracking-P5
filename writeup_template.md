@@ -66,7 +66,7 @@ Examples of test images with sliding windows are below:
 </p>
 
 #### False positives and filtering
-Filtering was implemented to store bounding boxes of the last n frames. Bounding boxes from the last n frames were then added, a heat map was applied which was then thresholded in order to filter out false positives (the idea here is that false positives are unlikely to persists from frame to frame). scipy.ndimage.measurements.label() was used to indentify individual blobs in the heatmap allowing to locate the vehicle(s) within the box(es).
+Filtering was implemented to store bounding boxes of the last n frames. Bounding boxes from the last n frames were then added, a heat map was applied which was then thresholded in order to filter out false positives (the idea here is that false positives are unlikely to persists from frame to frame). scipy.ndimage.measurements.label() was used to indentify individual blobs in the heatmap allowing to locate the vehicle(s) within the box(es). I constructed bounding boxes to cover the area of each blob detected.
 
 Here is an example of a heat map.
 
@@ -77,8 +77,7 @@ Here is an example of a heat map.
 
 ### Video Implementation
 
-#### 1. Provide a link to your final video output.  Your pipeline should perform reasonably well on the entire project video (somewhat wobbly or unstable bounding boxes are ok as long as you are identifying the vehicles most of the time with minimal false positives.)
-Here's a [link to my video result](./project_video.mp4)
+Here's a [Project_video](https://youtu.be/2BuTFsSRfJw)
 
 
 #### 2. Describe how (and identify where in your code) you implemented some kind of filter for false positives and some method for combining overlapping bounding boxes.
